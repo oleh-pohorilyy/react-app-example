@@ -6,10 +6,16 @@ export const TextInput = ({
   type = 'text',
   value,
   onChange,
+  hasErrors,
   ...props
 }) => {
   return (
-    <div {...props} className={`${styles.container} ${props.className}`}>
+    <div
+      {...props}
+      className={`${styles.container} ${props.className} ${
+        hasErrors ? styles.error : ''
+      }`}
+    >
       <input
         type={type}
         id={id}

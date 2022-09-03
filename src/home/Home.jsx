@@ -59,7 +59,7 @@ export const Home = () => {
       setErrors((prev) => ({ ...prev, password: null }))
     }
   }
-
+  console.log(errors)
   return (
     <div className={styles.container}>
       <div className={styles.form}>
@@ -79,6 +79,7 @@ export const Home = () => {
             label="Username"
             value={username}
             onChange={onUsernameChange}
+            hasErrors={errors['username']}
           />
           <TextInput
             className="my-container"
@@ -86,6 +87,7 @@ export const Home = () => {
             type="password"
             value={password}
             onChange={onPasswordChange}
+            hasErrors={errors['password']}
           />
 
           <input
