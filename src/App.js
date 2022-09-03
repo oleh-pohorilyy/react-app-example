@@ -13,7 +13,7 @@ const TAB = {
 }
 
 const App = () => {
-  const [tab, setTab] = useState()
+  const [tab, setTab] = useState(TAB.HOME)
 
   const tabs = {
     [TAB.HOME]: <Home />,

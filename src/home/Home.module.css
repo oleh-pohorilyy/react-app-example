@@ -1,4 +1,45 @@
 .container {
   height: 100%;
   background-color: chartreuse;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form {
+  width: 500px;
+  margin-top: 100px;
+  padding: 40px;
+  border-radius: 16px;
+
+  background-color: #1d1d1d;
+  color: #ffffff;
+}
+
+.form h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form form input[type='submit'] {
+  padding: 8px;
+  font-weight: bold;
+  background-color: greenyellow;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.errors {
+  padding: 4px;
+  background-color: #e05151;
+  color: #fff;
+  margin: 8px 0;
+  padding: 8px 24px;
 }
