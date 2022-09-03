@@ -10,6 +10,9 @@ body {
   font-weight: bold;
 }
 
-html, body, #root, .App {
+html,
+body,
+#root,
+.App {
   height: 100%;
 }
