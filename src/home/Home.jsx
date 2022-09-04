@@ -59,7 +59,7 @@ export const Home = () => {
       setErrors((prev) => ({ ...prev, password: null }))
     }
   }
-  console.log(errors)
+
   return (
     <div className={styles.container}>
       <div className={styles.form}>

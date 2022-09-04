@@ -5,20 +5,23 @@ import { AboutUs } from './about-us/AboutUs'
 import { Profile } from './profile/Profile'
 import { Home } from './home/Home'
 import { TabButton } from './TabButton'
+import { Books } from './books/Books'
 
 const TAB = {
   HOME: 'home',
   PROFILE: 'profile',
   ABOUT_US: 'about-us',
+  BOOKS: 'books',
 }
 
 const App = () => {
-  const [tab, setTab] = useState(TAB.HOME)
+  const [tab, setTab] = useState(TAB.BOOKS)
 
   const tabs = {
     [TAB.HOME]: <Home />,
     [TAB.PROFILE]: <Profile />,
     [TAB.ABOUT_US]: <AboutUs />,
+    [TAB.BOOKS]: <Books />,
   }
 
   return (
@@ -37,6 +40,7 @@ const App = () => {
           tab={tab}
           label="About Us"
         />
+        <TabButton tabId={TAB.BOOKS} setTab={setTab} tab={tab} label="Books" />
       </div>
 
       <div className="App__content">{tabs[tab]}</div>
