@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Book = ({ name, disabled, author, onSelect }) => {
   return (
-    <Book.Container onClick={!disabled && onSelect} disabled={disabled}>
+    <Book.Container onClick={!disabled ? onSelect : null} disabled={disabled}>
       <Book.Information>
         <div>{name}</div>
         <Book.Author>{author}</Book.Author>

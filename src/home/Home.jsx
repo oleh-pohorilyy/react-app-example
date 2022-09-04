@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { toast } from 'react-toastify'
 import { TextInput } from '../common/text-input/TextInput'
 import styles from './Home.module.css'
 
@@ -25,8 +26,7 @@ export const Home = () => {
     } else if (/\w+/.exec(name)[0].length !== name.length) {
       setErrors((prev) => ({
         ...prev,
-        username:
-          'Username should only contain numbers, letters and underscores!',
+        username: 'Username should only contain numbers, letters and underscores!',
       }))
     } else {
       setErrors((prev) => ({ ...prev, username: null }))
@@ -47,8 +47,7 @@ export const Home = () => {
     } else if (/\w+/.exec(password)[0].length !== password.length) {
       setErrors((prev) => ({
         ...prev,
-        password:
-          'Password should only contain numbers, letters and underscores!',
+        password: 'Password should only contain numbers, letters and underscores!',
       }))
     } else if (!(/\d/.test(password) && /[^\d]/.test(password))) {
       setErrors((prev) => ({
@@ -58,6 +57,12 @@ export const Home = () => {
     } else {
       setErrors((prev) => ({ ...prev, password: null }))
     }
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    errorMessages.forEach(([id, message]) => toast.error(`${id}: ${message}`, { autoClose: 1000 }))
   }
 
   return (
@@ -73,7 +78,7 @@ export const Home = () => {
           </ul>
         )}
 
-        <form>
+        <form onSubmit={onSubmit}>
           <TextInput
             className="my-container"
             label="Username"
@@ -90,11 +95,7 @@ export const Home = () => {
             hasErrors={errors['password']}
           />
 
-          <input
-            type="submit"
-            value="Log In"
-            disabled={errorMessages.length !== 0}
-          />
+          <input type="submit" value="Log In" />
         </form>
       </div>
     </div>

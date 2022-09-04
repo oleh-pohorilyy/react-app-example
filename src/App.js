@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 
 import { AboutUs } from './about-us/AboutUs'
@@ -25,26 +27,20 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      <div className="App__header">
-        <TabButton tabId={TAB.HOME} setTab={setTab} tab={tab} label="Home" />
-        <TabButton
-          tabId={TAB.PROFILE}
-          setTab={setTab}
-          tab={tab}
-          label="Profile"
-        />
-        <TabButton
-          tabId={TAB.ABOUT_US}
-          setTab={setTab}
-          tab={tab}
-          label="About Us"
-        />
-        <TabButton tabId={TAB.BOOKS} setTab={setTab} tab={tab} label="Books" />
+    <>
+      <div className="App">
+        <div className="App__header">
+          <TabButton tabId={TAB.HOME} setTab={setTab} tab={tab} label="Home" />
+          <TabButton tabId={TAB.PROFILE} setTab={setTab} tab={tab} label="Profile" />
+          <TabButton tabId={TAB.ABOUT_US} setTab={setTab} tab={tab} label="About Us" />
+          <TabButton tabId={TAB.BOOKS} setTab={setTab} tab={tab} label="Books" />
+        </div>
+
+        <div className="App__content">{tabs[tab]}</div>
       </div>
 
-      <div className="App__content">{tabs[tab]}</div>
-    </div>
+      <ToastContainer />
+    </>
   )
 }
 
